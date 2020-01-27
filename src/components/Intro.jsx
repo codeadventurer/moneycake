@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./intro.css";
 import DonutChart from "react-donut-chart";
+import Question from "./Question";
 
 export default class Intro extends Component {
   state = {
@@ -144,70 +145,48 @@ export default class Intro extends Component {
       <div>
         <form>
           <ul>
-            <li className="question">
-              <label>
-                How much is your netto salary?
-                <input type="text" name="salary" onChange={this.handleChange} />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much is your warm rent?
-                <input type="text" name="rent" onChange={this.handleChange} />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much do you pay for bills (e.g. mobile phone, internet)?
-                <input type="text" name="bills" onChange={this.handleChange} />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much do you pay for food?
-                <input type="text" name="food" onChange={this.handleChange} />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much do you pay for transport?
-                <input
-                  type="text"
-                  name="transport"
-                  onChange={this.handleChange}
-                />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much do you spend to go out?
-                <input
-                  type="text"
-                  name="goingOut"
-                  onChange={this.handleChange}
-                />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much do you spend on holidays?
-                <input
-                  type="text"
-                  name="holidays"
-                  onChange={this.handleChange}
-                />
-              </label>
-            </li>
-            <li className="question">
-              <label>
-                How much do you save?
-                <input
-                  type="text"
-                  name="savings"
-                  onChange={this.handleChange}
-                />
-              </label>
-            </li>
+            <Question
+              questionText={"How much is your netto salary?"}
+              name={"salary"}
+              handleChange={this.handleChange}
+            />
+            <Question
+              questionText={"How much is your warm rent?"}
+              name={"rent"}
+              handleChange={this.handleChange}
+            ></Question>
+            <Question
+              questionText={
+                "How much do you pay for bills (e.g. mobile phone, internet)?"
+              }
+              name={"bills"}
+              handleChange={this.handleChange}
+            ></Question>
+            <Question
+              questionText={"How much do you pay for food?"}
+              name={"food"}
+              handleChange={this.handleChange}
+            ></Question>
+            <Question
+              questionText={"How much do you pay for transport?"}
+              name={"transport"}
+              handleChange={this.handleChange}
+            ></Question>
+            <Question
+              questionText={"How much do you spend to go out?"}
+              name={"goingOut"}
+              handleChange={this.handleChange}
+            ></Question>
+            <Question
+              questionText={"How much do you spend on holidays?"}
+              name={"holidays"}
+              handleChange={this.handleChange}
+            ></Question>
+            <Question
+              questionText={"How much do you save?"}
+              name={"savings"}
+              handleChange={this.handleChange}
+            ></Question>
           </ul>
           <button onClick={this.handleClick}>Submit</button>
         </form>
