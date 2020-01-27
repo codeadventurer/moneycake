@@ -4,14 +4,14 @@ import DonutChart from "react-donut-chart";
 
 export default class Intro extends Component {
   state = {
-    salary: "",
-    rent: "",
-    bills: "",
-    food: "",
-    transport: "",
-    goingOut: "",
-    holidays: "",
-    savings: "",
+    salary: 0,
+    rent: 0,
+    bills: 0,
+    food: 0,
+    transport: 0,
+    goingOut: 0,
+    holidays: 0,
+    savings: 0,
     showCharts: false
   };
 
@@ -89,44 +89,46 @@ export default class Intro extends Component {
               data={[
                 {
                   label: "Rent",
-                  value: (rent / salary) * 100
+                  value: (salary * ((rent / salary) * 100)) / 100
                 },
                 {
                   label: "Food",
-                  value: (food / salary) * 100
+                  value: (salary * ((food / salary) * 100)) / 100
                 },
                 {
                   label: "Transport",
-                  value: (transport / salary) * 100
+                  value: (salary * ((transport / salary) * 100)) / 100
                 },
                 {
                   label: "Bills",
-                  value: (bills / salary) * 100
+                  value: Math.round((salary * ((bills / salary) * 100)) / 100)
                 },
                 {
                   label: "Going out",
-                  value: (goingOut / salary) * 100
+                  value: (salary * ((goingOut / salary) * 100)) / 100
                 },
                 {
                   label: "Holidays",
-                  value: (holidays / salary) * 100
+                  value: (salary * ((holidays / salary) * 100)) / 100
                 },
                 {
                   label: "Savings",
-                  value: (savings / salary) * 100
+                  value: (salary * ((savings / salary) * 100)) / 100
                 },
                 {
                   label: "Money left",
                   value:
-                    ((salary -
-                      rent -
-                      food -
-                      transport -
-                      bills -
-                      goingOut -
-                      holidays -
-                      savings) /
-                      salary) *
+                    (salary *
+                      (((salary -
+                        rent -
+                        food -
+                        transport -
+                        bills -
+                        goingOut -
+                        holidays -
+                        savings) /
+                        salary) *
+                        100)) /
                     100
                 }
               ]}
@@ -142,33 +144,31 @@ export default class Intro extends Component {
       <div>
         <form>
           <ul>
-            <li>
-              {" "}
+            <li className="question">
               <label>
                 How much is your netto salary?
                 <input type="text" name="salary" onChange={this.handleChange} />
               </label>
             </li>
-            <li>
-              {" "}
+            <li className="question">
               <label>
                 How much is your warm rent?
                 <input type="text" name="rent" onChange={this.handleChange} />
               </label>
             </li>
-            <li>
+            <li className="question">
               <label>
                 How much do you pay for bills (e.g. mobile phone, internet)?
                 <input type="text" name="bills" onChange={this.handleChange} />
               </label>
             </li>
-            <li>
+            <li className="question">
               <label>
                 How much do you pay for food?
                 <input type="text" name="food" onChange={this.handleChange} />
               </label>
             </li>
-            <li>
+            <li className="question">
               <label>
                 How much do you pay for transport?
                 <input
@@ -178,7 +178,7 @@ export default class Intro extends Component {
                 />
               </label>
             </li>
-            <li>
+            <li className="question">
               <label>
                 How much do you spend to go out?
                 <input
@@ -188,7 +188,7 @@ export default class Intro extends Component {
                 />
               </label>
             </li>
-            <li>
+            <li className="question">
               <label>
                 How much do you spend on holidays?
                 <input
@@ -198,7 +198,7 @@ export default class Intro extends Component {
                 />
               </label>
             </li>
-            <li>
+            <li className="question">
               <label>
                 How much do you save?
                 <input
