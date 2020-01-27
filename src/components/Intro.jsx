@@ -51,8 +51,8 @@ export default class Intro extends Component {
 
           <div className="chart-container">
             <DonutChart
-              innerRadius="0.50"
-              width="500"
+              innerRadius={0.5}
+              width={500}
               data={[
                 {
                   label: "Rent",
@@ -85,8 +85,8 @@ export default class Intro extends Component {
               ]}
             />
             <DonutChart
-              innerRadius="0.50"
-              width="500"
+              innerRadius={0.5}
+              width={500}
               data={[
                 {
                   label: "Rent",
