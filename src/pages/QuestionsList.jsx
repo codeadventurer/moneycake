@@ -1,16 +1,10 @@
 import React from "react";
 import "./questions-list.css";
 import Question from "../components/Question";
+import { Link } from "react-router-dom";
 
 export default function QuestionsList(props) {
   const { handleChange } = props;
-
-  const handleClick = (event) => {
-    // event.preventDefault();
-    // this.setState({
-    //   showCharts: true,
-    // });
-  };
 
   return (
     <div>
@@ -59,7 +53,7 @@ export default function QuestionsList(props) {
             handleChange={handleChange}
           ></Question>
         </ul>
-        <button onClick={handleClick}>Submit</button>
+        <Link to="/result">Submit</Link>
       </form>
       {/* {renderCharts()} */}
     </div>

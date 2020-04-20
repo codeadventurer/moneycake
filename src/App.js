@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import QuestionsList from "./pages/QuestionsList";
 import Result from "./pages/Result";
 import "./App.css";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   const [inputData, setInputData] = useState({
@@ -21,8 +22,14 @@ function App() {
 
   return (
     <div className="App">
-      <QuestionsList handleChange={handleChange} />
-      <Result data={inputData} />
+      <Switch>
+        <Route path="/result">
+          <Result data={inputData} />
+        </Route>
+        <Route path="/">
+          <QuestionsList handleChange={handleChange} />
+        </Route>
+      </Switch>
     </div>
   );
 }
