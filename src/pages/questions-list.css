@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 ul {
   list-style: none;
 }
@@ -7,6 +11,6 @@ ul {
   justify-content: center;
 }
 
-/* .question {
+.question {
   height: 100vh;
-} */
+}

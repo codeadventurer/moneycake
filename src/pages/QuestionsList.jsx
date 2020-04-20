@@ -6,56 +6,54 @@ import { Link } from "react-router-dom";
 export default function QuestionsList(props) {
   const { handleChange } = props;
 
+  const questionsArray = [
+    {
+      questionText: "How much is your netto salary?",
+      name: "salary",
+    },
+    {
+      questionText: "How much is your warm rent?",
+      name: "rent",
+    },
+    {
+      questionText:
+        "How much do you pay for bills (e.g. mobile phone, internet)?",
+      name: "bills",
+    },
+    {
+      questionText: "How much do you pay for food?",
+      name: "food",
+    },
+    {
+      questionText: "How much do you pay for transport?",
+      name: "transport",
+    },
+    {
+      questionText: "How much do you spend to go out?",
+      name: "goingOut",
+    },
+    {
+      questionText: "How much do you spend on holidays?",
+      name: "holidays",
+    },
+    {
+      questionText: "How much do you save?",
+      name: "savings",
+    },
+  ].map((question, index) => {
+    return { ...question, id: index, handleChange: handleChange };
+  });
+
   return (
     <div>
       <form>
         <ul>
-          <Question
-            questionText={"How much is your netto salary?"}
-            name={"salary"}
-            handleChange={handleChange}
-          />
-          <Question
-            questionText={"How much is your warm rent?"}
-            name={"rent"}
-            handleChange={handleChange}
-          ></Question>
-          <Question
-            questionText={
-              "How much do you pay for bills (e.g. mobile phone, internet)?"
-            }
-            name={"bills"}
-            handleChange={handleChange}
-          ></Question>
-          <Question
-            questionText={"How much do you pay for food?"}
-            name={"food"}
-            handleChange={handleChange}
-          ></Question>
-          <Question
-            questionText={"How much do you pay for transport?"}
-            name={"transport"}
-            handleChange={handleChange}
-          ></Question>
-          <Question
-            questionText={"How much do you spend to go out?"}
-            name={"goingOut"}
-            handleChange={handleChange}
-          ></Question>
-          <Question
-            questionText={"How much do you spend on holidays?"}
-            name={"holidays"}
-            handleChange={handleChange}
-          ></Question>
-          <Question
-            questionText={"How much do you save?"}
-            name={"savings"}
-            handleChange={handleChange}
-          ></Question>
+          {questionsArray.map((question) => (
+            <Question key={question.id} {...question} />
+          ))}
         </ul>
         <Link to="/result">Submit</Link>
       </form>
-      {/* {renderCharts()} */}
     </div>
   );
 }

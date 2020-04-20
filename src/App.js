@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import QuestionsList from "./pages/QuestionsList";
 import Result from "./pages/Result";
 import "./App.css";
@@ -15,9 +15,24 @@ function App() {
     savings: 0,
   });
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setInputData({ ...inputData, [name]: value });
+  };
+
+  const handleScroll = () => {
+    console.log("scroll!");
+    // window.scrollTo({
+    //   top: window.pageYOffset + window.innerHeight,
+    //   left: 0,
+    //   behavior: "smooth",
+    // });
+    // window.removeEventListener("scroll", handleScroll);
   };
 
   return (
