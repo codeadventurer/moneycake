@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QuestionsList from "./pages/QuestionsList";
+import Result from "./pages/Result";
 import "./App.css";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <QuestionsList handleChange={handleChange} />
-      {/* <Result /> */}
+      <Result data={inputData} />
     </div>
   );
 }
