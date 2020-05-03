@@ -1,5 +1,6 @@
 import React from "react";
 import DonutChart from "react-donut-chart";
+import { Link } from "react-router-dom";
 
 export default function Result(props) {
   const {
@@ -14,15 +15,15 @@ export default function Result(props) {
   } = props.data;
 
   return (
-    <div>
-      <p>
+    <div className="result-page">
+      <h2>
         Your salary is <strong>{salary}€ </strong>
-      </p>
-      <hr />
+      </h2>
 
       <div className="chart-container">
         <DonutChart
-          innerRadius={0.5}
+          innerRadius={0.7}
+          outerRadius={0.9}
           width={500}
           data={[
             {
@@ -56,7 +57,8 @@ export default function Result(props) {
           ]}
         />
         <DonutChart
-          innerRadius={0.5}
+          innerRadius={0.7}
+          outerRadius={0.9}
           width={500}
           data={[
             {
@@ -105,6 +107,11 @@ export default function Result(props) {
             },
           ]}
         />
+      </div>
+      <div className="questions-list__button-container">
+        <Link to="/">
+          <button>Back to questions</button>
+        </Link>
       </div>
     </div>
   );

@@ -46,14 +46,16 @@ export default function QuestionsList(props) {
 
   return (
     <div>
-      <form>
-        <ul>
-          {questionsArray.map((question) => (
-            <Question key={question.id} {...question} />
-          ))}
-        </ul>
-        <Link to="/result">Submit</Link>
-      </form>
+      <div className="questions_list__container">
+        {questionsArray.map((question) => (
+          <Question key={question.id} {...question} />
+        ))}
+        <div className="questions-list__button-container">
+          <Link to="/result">
+            <button>Submit</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
